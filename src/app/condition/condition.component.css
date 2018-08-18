@@ -1,0 +1,68 @@
+.example-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #eee;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.block {
+  display: block;
+}
+
+.sidenav {
+  width: 300px;
+  min-height: 100%;
+  overflow: auto;
+}
+
+.black {
+  color: black;
+}
+
+table {
+  width: 100%;
+}
+
+.table-section {
+  height: calc(100% - 56px);
+  overflow: auto;
+}
+
+.pager-section {
+  background-color: #eeeeee;
+  height: 56px;
+  overflow: auto;
+}
+
+.selected-row:hover {
+  background: #f5f5f5;
+}
+
+.table-header-bg {
+  background-color: #eeeeee;
+}
+
+mat-accordion {
+  height: 200px;
+  overflow: auto;
+}
+
+.nav-condition {
+  height: calc(100% - 65px);
+  overflow: auto;
+}
+
+.nav-toolbar {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+

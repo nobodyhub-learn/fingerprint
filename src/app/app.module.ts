@@ -5,6 +5,7 @@ import {AppComponent} from './app.component';
 import {ConditionComponent} from './condition/condition.component';
 import {MaterialDesignModule} from './material-design.module';
 import {BrowserAnimationsModule} from "node_modules/@angular/platform-browser/animations";
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import {BrowserAnimationsModule} from "node_modules/@angular/platform-browser/an
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     MaterialDesignModule
   ],
   providers: [],
