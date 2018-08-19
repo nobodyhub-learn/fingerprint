@@ -134,8 +134,18 @@ export class ConditionComponent implements OnInit {
   selectData(data: PeriodicElement) {
     const dialogRef = this.dialog.open(DetailDialogComponent, {
       width: '800px',
-      height: '600px',
-      data: {name: data.name, weight: data.weight, symbol: data.symbol}
+      height: '520px',
+      data: {
+        info: {name: data.name, team: data.weight, email: data.symbol},
+        chart: {
+          data: [
+            {data: [65, 59, 80, 81, 56, 55, 40, 65, 59, 80, 81, 56, 55, 40, 65, 59, 80, 81, 56, 55, 40], label: 'Entry Time'},
+            {data: [28, 48, 40, 19, 86, 27, 90, 28, 48, 40, 19, 86, 27, 90, 28, 48, 40, 19, 86, 27, 90], label: '5-Day Avg'},
+            {data: [18, 48, 77, 9, 100, 27, 40, 8, 48, 77, 9, 100, 27, 40, 8, 48, 77, 9, 100, 27, 40], label: '7-Day Avg'}
+          ],
+          labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'January', 'February', 'March', 'April', 'May', 'June', 'July']
+        }
+      }
     });
 
     dialogRef.afterClosed().subscribe(result => {

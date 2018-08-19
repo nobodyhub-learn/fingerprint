@@ -1,19 +1,20 @@
-<h2 mat-dialog-title>Install Angular</h2>
+<h2 mat-dialog-title>Attendence Detail</h2>
 <mat-dialog-content class="mat-typography">
-  <mat-form-field>
-    <input matInput placeholder="Name" [(value)]="data.name">
+  <mat-form-field class="dialog-detail" disabled>
+    <input matInput disabled placeholder="Employee Name"
+           [value]="data.info.name">
   </mat-form-field>
-  <mat-form-field>
-    <input matInput placeholder="Weight" [(value)]="data.weight">
+  <mat-form-field class="dialog-detail">
+    <input matInput disabled placeholder="Team" [(value)]="data.info.team">
   </mat-form-field>
-  <mat-form-field>
-    <input matInput placeholder="Symbol" [(value)]="data.symbol">
+  <mat-form-field class="dialog-detail">
+    <input matInput disabled placeholder="Email" [(value)]="data.info.email">
   </mat-form-field>
 
   <div style="display: block;">
     <canvas baseChart
-            [datasets]="lineChartData"
-            [labels]="lineChartLabels"
+            [datasets]="data.chart.data"
+            [labels]="data.chart.labels"
             [options]="lineChartOptions"
             [colors]="lineChartColors"
             [legend]="lineChartLegend"
@@ -23,8 +24,8 @@
   </div>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-  <button mat-button mat-dialog-close>Cancel</button>
-  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button>
+  <button mat-button mat-dialog-close>OK</button>
 </mat-dialog-actions>
+
 
 
