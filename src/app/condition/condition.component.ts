@@ -101,7 +101,7 @@ export class ConditionComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
   dataSource = new MatTableDataSource(attendences);
 
-  expandedData: PeriodicElement = attendences[0];
+  expandedData: PeriodicElement = attendences.length == 1 ? attendences[0] : null;
 
 
   constructor(public dialog: MatDialog) {
@@ -133,7 +133,8 @@ export class ConditionComponent implements OnInit {
 
   selectData(data: PeriodicElement) {
     const dialogRef = this.dialog.open(DetailDialogComponent, {
-      width: '500px',
+      width: '800px',
+      height: '600px',
       data: {name: data.name, weight: data.weight, symbol: data.symbol}
     });
 

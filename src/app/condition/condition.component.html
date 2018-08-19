@@ -1,5 +1,12 @@
-<mat-sidenav-container class="example-container">
-  <mat-sidenav mode="side" opened class="sidenav mat-typography">
+<div class="page-header">
+  <mat-toolbar color="primary">
+    <label>Fingerprint Information Search</label>
+    <span class="spacer"></span>
+    <button mat-raised-button color="accent">Settings</button>
+  </mat-toolbar>
+</div>
+<mat-drawer-container class="example-container">
+  <mat-drawer mode="side" opened class="sidenav mat-typography">
     <div class="nav-condition">
       <mat-accordion [multi]="true">
         <mat-expansion-panel expanded disabled>
@@ -88,9 +95,9 @@
         <button mat-raised-button color="primary">Search</button>
       </mat-toolbar>
     </div>
-  </mat-sidenav>
+  </mat-drawer>
 
-  <mat-sidenav mode="side" position="end" opened class="sidenav">
+  <mat-drawer mode="side" position="end" opened class="sidenav">
     <div class="nav-condition">
       <mat-accordion [multi]="true">
         <mat-expansion-panel expanded disabled>
@@ -110,7 +117,8 @@
             </tr>
             <tr>
               <td class="summary-label">Average Attd. Rate</td>
-              <td class="summary-number">64.3<span class="summary-sign">%</span></td>
+              <td class="summary-number">64.3<span class="summary-sign">%</span>
+              </td>
             </tr>
           </table>
         </mat-expansion-panel>
@@ -118,7 +126,7 @@
         <mat-expansion-panel expanded disabled>
           <mat-expansion-panel-header class="black">
             <mat-panel-title>
-              Advanced Condition
+              Advanced Filter
             </mat-panel-title>
           </mat-expansion-panel-header>
           <mat-form-field class="block">
@@ -142,9 +150,9 @@
         </mat-expansion-panel>
       </mat-accordion>
     </div>
-  </mat-sidenav>
+  </mat-drawer>
 
-  <mat-sidenav-content>
+  <mat-drawer-content>
     <div class="table-section">
       <table mat-table matSort multiTemplateDataRows
              [dataSource]="dataSource">
@@ -184,12 +192,12 @@
             *matRowDef="let row; columns: displayColumns;"
             class="selected-row example-element-row"
             [class.example-expanded-row]="expandedData === row"
-            (click)="expandRow(row)"
-            (dblclick)="selectData(row)">
+            (click)="expandRow(row)">
         </tr>
         <tr mat-row
             *matRowDef="let row; columns: ['expandedDetail']"
-            class="example-detail-row">
+            class="example-detail-row"
+            (dblclick)="selectData(row)">
         </tr>
       </table>
     </div>
@@ -199,5 +207,5 @@
                      [pageSizeOptions]="[5, 10, 25, 100]">
       </mat-paginator>
     </div>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+  </mat-drawer-content>
+</mat-drawer-container>
