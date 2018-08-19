@@ -1,12 +1,14 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {
   MatButtonToggleChange,
-  MatChipInputEvent, MatDialog,
+  MatChipInputEvent,
+  MatDialog,
   MatSort,
   MatTableDataSource
 } from "@angular/material";
 import {COMMA, ENTER} from "@angular/cdk/keycodes";
 import {DetailDialogComponent} from "../detail-dialog/detail-dialog.component";
+import {animate, state, style, transition, trigger} from "@angular/animations";
 
 export interface Team {
   name: string
@@ -67,7 +69,18 @@ const attendences: PeriodicElement[] = [
 @Component({
   selector: 'app-condition',
   templateUrl: './condition.component.html',
-  styleUrls: ['./condition.component.css']
+  styleUrls: ['./condition.component.css'],
+  animations: [
+    trigger('detailExpand', [
+      state('collapsed', style({
+        height: '0px',
+        minHeight: '0',
+        display: 'none'
+      })),
+      state('expanded', style({height: '*'})),
+      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+    ]),
+  ],
 })
 export class ConditionComponent implements OnInit {
   visible = true;
@@ -87,6 +100,8 @@ export class ConditionComponent implements OnInit {
 
   @ViewChild(MatSort) sort: MatSort;
   dataSource = new MatTableDataSource(attendences);
+
+  expandedData: PeriodicElement = attendences[0];
 
 
   constructor(public dialog: MatDialog) {
@@ -127,4 +142,15 @@ export class ConditionComponent implements OnInit {
     })
   }
 
+  isExpanded(data: PeriodicElement) {
+    return data === this.expandedData;
+  }
+
+  expandRow(data: PeriodicElement) {
+    if (this.expandedData == data) {
+      this.expandedData = null;
+      return;
+    }
+    this.expandedData = data;
+  }
 }
