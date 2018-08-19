@@ -3,7 +3,7 @@ import {
   MatButtonModule,
   MatButtonToggleModule,
   MatChipsModule,
-  MatDatepickerModule,
+  MatDatepickerModule, MatDialogModule,
   MatExpansionModule,
   MatFormFieldModule, MatGridListModule,
   MatIconModule,
@@ -31,7 +31,8 @@ import {
     MatSortModule,
     MatPaginatorModule,
     MatSlideToggleModule,
-    MatGridListModule
+    MatGridListModule,
+    MatDialogModule
 
   ],
   exports: [
@@ -50,7 +51,8 @@ import {
     MatSortModule,
     MatPaginatorModule,
     MatSlideToggleModule,
-    MatGridListModule
+    MatGridListModule,
+    MatDialogModule
   ]
 })
 export class MaterialDesignModule {

@@ -1,11 +1,12 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {FormGroup} from "@angular/forms";
 import {
   MatButtonToggleChange,
-  MatChipInputEvent,
-  MatSort, MatTableDataSource
+  MatChipInputEvent, MatDialog,
+  MatSort,
+  MatTableDataSource
 } from "@angular/material";
 import {COMMA, ENTER} from "@angular/cdk/keycodes";
+import {DetailDialogComponent} from "../detail-dialog/detail-dialog.component";
 
 export interface Team {
   name: string
@@ -80,7 +81,6 @@ export class ConditionComponent implements OnInit {
   ];
 
 
-
   displayColumns = [
     'position', 'name', 'weight', 'symbol'
   ];
@@ -89,7 +89,7 @@ export class ConditionComponent implements OnInit {
   dataSource = new MatTableDataSource(attendences);
 
 
-  constructor() {
+  constructor(public dialog: MatDialog) {
 
   }
 
@@ -117,7 +117,14 @@ export class ConditionComponent implements OnInit {
   }
 
   selectData(data: PeriodicElement) {
-    console.log(JSON.stringify(data))
+    const dialogRef = this.dialog.open(DetailDialogComponent, {
+      width: '500px',
+      data: {name: data.name, weight: data.weight, symbol: data.symbol}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(JSON.stringify(result))
+    })
   }
 
 }

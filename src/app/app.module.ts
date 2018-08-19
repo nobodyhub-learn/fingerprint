@@ -6,11 +6,16 @@ import {ConditionComponent} from './condition/condition.component';
 import {MaterialDesignModule} from './material-design.module';
 import {BrowserAnimationsModule} from "node_modules/@angular/platform-browser/animations";
 import {ReactiveFormsModule} from "@angular/forms";
+import {DetailDialogComponent} from './detail-dialog/detail-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ConditionComponent
+    ConditionComponent,
+    DetailDialogComponent
+  ],
+  entryComponents: [
+    DetailDialogComponent
   ],
   imports: [
     BrowserModule,
